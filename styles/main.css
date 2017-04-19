@@ -29,7 +29,7 @@ body {
 }
 .navbar .links-container {
     display: table;
-    postion: absolute;
+    position: absolute;
     top: 0;
     right: 0;
     height: 100px;
@@ -45,7 +45,9 @@ body {
     vertical-align: middle;
     color: white;
     font-size: 0.625em;
-    text-transform: uppercse;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
 }
