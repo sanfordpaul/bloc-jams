@@ -1,37 +1,38 @@
 var pointsArray = document.getElementsByClassName('point');
 
-var animatePoints = function(points) {
+var animatePoints = function(pointsArray) {
 
-                 function revealPoint(pointIndex) {
-                     points[pointIndex].style.opacity = 1;
-                     points[pointIndex].style.color = "yellow";
-                     points[pointIndex].style.transform = "scaleX(1) translateY(pointIndex)";
-                     points[pointIndex].style.msTransform = "scaleX(1) translateY(pointIndex)";
-                     points[pointIndex].style.WebkitTransform = "scaleX(1) translateY(0)";
+                 function revealPoint(point) {
+                     point.style.opacity = 1;
+                     point.style.color = "yellow";
+                     point.style.transform = "scalex(1) translateY(pointIndex)";
+                     point.style.msTransform = "scaleX(1) translateY(pointIndex)";
+                     point.style.WebkitTransform = "scaleX(1) translateY(0)";
 
-                     points[pointIndex].firstElementChild.style.color = "red";
-                     points[pointIndex].firstElementChild.style.transform = "rotate(360deg)";
-                     points[pointIndex].firstElementChild.style.msTransform = "rotate(360deg)";
-                     points[pointIndex].firstElementChild.style.WebkitTransform = "rotate(360deg)";
+                     point.firstElementChild.style.color = "red";
+                     point.firstElementChild.style.transform = "rotate(360deg)";
+                     point.firstElementChild.style.msTransform = "rotate(360deg)";
+                     point.firstElementChild.style.WebkitTransform = "rotate(360deg)";
                  }
 
                  var title = document.getElementsByClassName('hero-title');
 
                  var changeTitleColor = function() {
                      title[0].style.color = "yellow";
-                     title[0].style.textShadow ="2px 2px 0 black"
+                     title[0].style.textShadow ="2px 2px 0 black";
+                     title[0].style.fontSize = "4rem";
+
                  };
 
-                 for(var i = 0; i <= 2; i++){
-                     revealPoint(i);
-                 }
+                 forEach(pointsArray, revealPoint);
+
                  changeTitleColor();
              };
  window.onload = function() {
      if (window.innerHeight > 950) {
          animatePoints(pointsArray);
      }
-     
+
      var sellingPoints = document.getElementsByClassName('selling-points')[0];
      var scrollDistance = sellingPoints.getBoundingClientRect().top - window.innerHeight + 200;
 
