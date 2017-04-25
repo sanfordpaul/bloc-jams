@@ -28,6 +28,21 @@ var albumPicasso = {
      ]
  };
 
+ var albumSanford = {
+     title: 'Sanford and Son',
+     artist: 'Paul Sanford',
+     label: 'WPS',
+     year: '2017',
+     albumArtUrl: 'assets/images/album_covers/02.png',
+     songs: [
+         { title: 'Louise', duration: '3:01' },
+         { title: 'Hey, Hey ,Hey', duration: '6:01' },
+         { title: 'Lamar', duration: '2:21'},
+         { title: 'The Big One', duration: '4:14' },
+         { title: 'Bwam Bwam Bwam', duration: '7:15'}
+     ]
+ };
+
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -63,6 +78,20 @@ var albumPicasso = {
      }
  };
 
+var albumList = [albumPicasso, albumMarconi, albumSanford];
+var albumPosition = 0;
+
+function rotateAlbums(){
+    if(albumPosition === 2){
+        albumPosition = 0;
+    } else {
+        albumPosition++;
+    }
+    setCurrentAlbum(albumList[albumPosition]);
+
+}
  window.onload = function() {
+
      setCurrentAlbum(albumPicasso);
+     document.getElementsByClassName('album-cover-art')[0].addEventListener("click",rotateAlbums);
  };
