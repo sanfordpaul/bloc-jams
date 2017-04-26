@@ -59,14 +59,26 @@ var albumPicasso = {
      }
  };
 
- var findParentByClassName = function(element, targetClass) {
-    if (element) {
+var findParentByClassName = function(element, targetClass) {
+ if(element){
+    if (element.parentElement) {
         var currentParent = element.parentElement;
         while (currentParent.className !== targetClass && currentParent.className !== null) {
             currentParent = currentParent.parentElement;
+            if(currentParent == null){
+                console.log("No parent found with that class name.");
+                break;
+            }
         }
+        if(currentParent == null){
+            console.log("No parent found with that class name.");
+        } else {
         return currentParent;
+        }
+    } else {
+        console.log("No parent exists for element.");
     }
+  }
 };
 
 var getSongItem = function(element) {
@@ -136,4 +148,8 @@ var clickHandler = function(targetElement) {
              clickHandler(event.target);
         });
      }
+     document.addEventListener('click', function(event){
+         findParentByClassName(event.target, "x");
+
+     });
  };
